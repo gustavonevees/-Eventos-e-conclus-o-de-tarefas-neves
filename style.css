@@ -1,72 +1,148 @@
-/* Estilo para tarefas concluídas */
-.todo-list-item.done .task-text {
-    text-decoration: line-through;
-    color: #888; /* Cor mais clara para indicar conclusão */
-}
-
-/* Estilo para o contêiner de filtros */
-.filter-container {
+/* Estilos existentes (ou defina os seus básicos) */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     display: flex;
     justify-content: center;
+    align-items: flex-start; /* Alinhar ao topo */
+    min-height: 100vh;
+    padding-top: 50px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+#task-form {
+    display: flex;
     margin-bottom: 20px;
 }
 
-.filter-container button {
-    padding: 8px 15px;
-    margin: 0 5px;
-    border: 1px solid #ccc;
-    background-color: #f0f0f0;
+#task-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+}
+
+#task-form button {
+    padding: 10px 15px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
     cursor: pointer;
-    border-radius: 5px;
     transition: background-color 0.3s;
 }
 
-.filter-container button:hover {
-    background-color: #e0e0e0;
+#task-form button:hover {
+    background-color: #4cae4c;
 }
 
-.filter-container button.active {
+#tasks-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Estilo para cada item da lista (li) */
+#tasks-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 8px;
+    background-color: #eee;
+    border-radius: 4px;
+    border-left: 5px solid #007bff;
+    transition: all 0.3s;
+}
+
+/* ➡️ NOVO: Estilo para tarefa concluída */
+.completed {
+    border-left-color: #5cb85c !important;
+    background-color: #e0ffe0 !important;
+}
+
+.completed .task-text {
+    text-decoration: line-through;
+    color: #777;
+}
+
+/* Estilo dos botões de ação na tarefa */
+.task-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+
+.task-actions .complete-btn {
+    color: #28a745; /* Verde para Concluir */
+}
+
+.task-actions .edit-btn {
+    color: #ffc107; /* Amarelo para Editar */
+}
+
+.task-actions .delete-btn {
+    color: #dc3545; /* Vermelho para Excluir */
+}
+
+.task-actions button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para o campo de edição */
+.edit-input {
+    padding: 5px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+/* Estilos para os controles de filtro */
+.filter-controls {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    padding: 8px 15px;
+    margin: 0 5px;
+    background-color: #ddd;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover {
+    background-color: #ccc;
+}
+
+.filter-btn.active {
     background-color: #007bff;
     color: white;
     border-color: #007bff;
 }
 
-/* Estilo para o botão de concluir/desconcluir */
-.btn-check {
-    color: #28a745; /* Verde para indicar "concluir" */
-    margin-right: 10px;
-}
-
-/* Estilo para o modo de edição */
-.edit-form {
-    display: none; /* Inicialmente escondido */
-    margin-top: 5px;
-}
-
-.todo-list-item.editing .task-actions,
-.todo-list-item.editing .task-text {
-    display: none; /* Esconde texto e ações normais durante a edição */
-}
-
-.todo-list-item.editing .edit-form {
-    display: flex; /* Mostra o formulário de edição */
-    align-items: center;
-    width: 100%;
-}
-
-.edit-form input[type="text"] {
-    flex-grow: 1;
-    padding: 8px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.edit-form button {
-    background-color: #ffc107;
-    color: #333;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
+/* Esconder tarefas baseadas no filtro (usado no JavaScript) */
+.hidden {
+    display: none !important;
 }
