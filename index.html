@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas - Aula 3</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="container">
+        <h1>Minhas Tarefas</h1>
+
+        <form id="task-form" class="task-form">
+            <input 
+                type="text" 
+                id="task-input" 
+                placeholder="Adicionar nova tarefa..." 
+                required
+            >
+            <button type="submit" class="btn btn-add">Adicionar</button>
+        </form>
+
+        <div class="filter-container">
+            <button id="filter-all" class="active">Todas</button>
+            <button id="filter-pending">Pendentes</button>
+            <button id="filter-done">Concluídas</button>
+        </div>
+
+        <ul id="todo-list" class="todo-list">
+            </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
